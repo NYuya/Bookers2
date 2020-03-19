@@ -1,0 +1,18 @@
+<div class="profile-container">
+    <h3 class="profile-name"><%= @user.name %></h3>
+    <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+</div>
+
+<section class="sct-color-1 slice">
+  <div class="container-fluid masonry-container">
+    <div class="row">
+      <div class="col-md-8 col-sm-offset-2">
+        <div class="masonry-wrapper-cols">
+            <% @books.each do |book| %>
+
+            <%= paginate @books, class: "pagenate" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
