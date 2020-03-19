@@ -1,6 +1,9 @@
 <div class="profile-container">
+  <h2>User info</h2>
+    <%= image_tag('no_image.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
     <h3 class="profile-name"><%= @user.name %></h3>
-    <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+    <h3 class="profile-introduction"><%= @user.name %></h3>
+
 </div>
 
 <section class="sct-color-1 slice">
@@ -8,11 +11,30 @@
     <div class="row">
       <div class="col-md-8 col-sm-offset-2">
         <div class="masonry-wrapper-cols">
-            <% @books.each do |book| %>
-
-            <%= paginate @books, class: "pagenate" %>
+            
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<h2>New book</h2>
+<%= form_for(@book) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Opinion %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Create Book' %>
+  </div>
+
+<% end %>
