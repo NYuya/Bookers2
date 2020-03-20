@@ -27,7 +27,7 @@ class BooksController < ApplicationController
     	@book = Book.find(params[:id])
 	    if @book.update(book_params)
 	      flash[:notice] = "Book was successfully updated."
-	      redirect_to book_path(@book)
+	      redirect_to book_path(@book.id)
 		else
 			render action: :edit
 		end
@@ -43,8 +43,8 @@ class BooksController < ApplicationController
 
 
     private
-    def post_image_params
-        params.require(:post_image).permit(:shop_name, :image, :caption)
+    def book_params
+        params.require(:book).permit(:title, :body)
     end
 
 end
