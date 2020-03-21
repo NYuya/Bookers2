@@ -1,13 +1,71 @@
 
+<script src="https://kit.fontawesome.com/9e2252169c.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.scss">
+
+<div class="container">
+  <div class="row">
 
 
+    <div class="col-lg-3" >
+      <div class="profile-container">
+        <h2>User info</h2>
+          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+          <h3 class="profile-name"><%= @user.name %></h3>
+          <h3 class="profile-introduction"><%= @user.introduce %></h3>
+
+          <% if @user.id == current_user.id %>
+            <%= link_to  edit_user_path(@user), class: "pull-right" , class: "btn btn-default btn-lg btn-block" do %>
+            <i class="fas fa-wrench"></i>
+            <% end %>
+          <% end %>
+      </div>
+
+
+      <h2>New book</h2>
+      <%= form_for(@book) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+
+        <div class="field">
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= f.label :Opinion %>
+          <%= f.text_area :body %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Create Book', class: "pull-right" , class: "btn btn-primary btn-lg btn-block" do %><% end %>
+        </div>
+      <% end %>
+    </div>
+
+
+	<div class="col-lg-9">
+    	<table class="books-index">
+    		<tr>
+    			<h2>Books</h2>
+    			<th>image</th>
+            	<th>name</th>
+    		</tr>
 
 			<% if @users.present? %>
               <% @users.each do |user| %>
                 <tr>
-                  <td><%= user.name %></td>
-                  <td><%= user.profile_image %></td>
-                  <td><%= link_to "Show", user_path(user) %></td>
+                	<td><%= image_tag user %></td>
+                	<td><%= link_to "Show", user_path(user) %></td>
+                	<td><%= user.name %></td>
+                	<td><%= user.profile_image %></td>
                 </tr>
               <% end %>
             <% end %>
+
+    	</table>
+	</div>
+
+
+	</div>
+
+  </div>
+</div>

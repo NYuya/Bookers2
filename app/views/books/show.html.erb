@@ -14,4 +14,8 @@
       <%= @book.body %>
     </p>
 
-    <%= link_to "Edit", edit_book_path(@book) %> | <%= link_to "Back", books_path %>
+    <%= link_to "Edit", edit_book_path %> | <%= link_to "Back", books_path %>
+
+    <td>
+      <%= link_to "Destroy", book_path(book), method: :delete, "data-confirm" => "Are you sure？" %>
+    </td>

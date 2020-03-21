@@ -66,6 +66,7 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile' #ファイルをアップロードできるようにするgem
 gem "refile-mini_magick" #アップロードした画像のリサイズを行えるgem
 
-
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
 
 
