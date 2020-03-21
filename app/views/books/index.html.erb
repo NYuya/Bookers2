@@ -1,6 +1,4 @@
 
-<script src="https://kit.fontawesome.com/9e2252169c.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.scss">
 
 <div class="container">
   <div class="row">
@@ -15,7 +13,7 @@
 
           <% if @user.id == current_user.id %>
             <%= link_to  edit_user_path(@user), class: "pull-right" , class: "btn btn-default btn-lg btn-block" do %>
-            <i class="fas fa-wrench"></i>
+            <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
             <% end %>
           <% end %>
       </div>

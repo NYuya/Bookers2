@@ -1,6 +1,4 @@
 
-<script src="https://kit.fontawesome.com/9e2252169c.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.scss">
 
 <div class="container">
   <div class="row">
@@ -17,8 +15,8 @@
           <h3 class="profile-introduction"><%= @user.introduce %></h3>
 
           <% if @user.id == current_user.id %>
-            <%= link_to  edit_user_path(@user), class: "pull-right" , class: "btn btn-default btn-lg btn-block" do %>
-            <i class="fas fa-wrench"></i>
+            <%= link_to  edit_user_path(@user), class: "pull-right" , class: "btn btn-default btn-block" do %>
+            <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
             <% end %>
           <% end %>
       </div>
@@ -39,7 +37,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit 'Create Book', class: "pull-right" , class: "btn btn-primary btn-lg btn-block" do %><% end %>
+          <%= f.submit 'Create Book', class: "pull-right" , class: "btn btn-primary  btn-block" do %><% end %>
         </div>
       <% end %>
 
@@ -47,24 +45,27 @@
 
 
       <div class="col-lg-9">
-        <table class="mybooks-index">
-          <h2>Books</h2>
-          <th>Title</th>
-          <th>Opinion</th>
-
-          <% if @books.present? %>
-            <% @books.each do |book| %>
-              <tr>
-                <td><%= image_tag book.user %></td>
-                <td><%= book.title %></td>
-                <td><%= book.body %></td>
-                
-
-              </tr>
-            <% end %>
-          <% end %>
-
-
+          <div class="container">
+            <h2>Books</h2>
+              <table class="table table-hover">
+                <thead>
+                            <th></th>
+                            <th>Title</th>
+                            <th>Opinion</th>
+                </thead>
+                <tbody>
+                            <% if @books.present? %>
+                              <% @books.each do |book| %>
+                                <tr>
+                                  <td><%= image_tag book.user %></td>
+                                  <td><%= book.title %></td>
+                                  <td><%= book.body %></td>
+                                </tr>
+                              <% end %>
+                            <% end %>
+                </tbody>
+              </table>
+          </div>
 
 
 
