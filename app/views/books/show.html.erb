@@ -4,18 +4,41 @@
 
     <p id="notice"><%= flash[:notice] %></p>
 
-    <p>
-      <strong>Title:</strong>
-      <%= @book.title %>
-    </p>
 
-    <p>
-      <strong>Body:</strong>
-      <%= @book.body %>
-    </p>
 
-    <%= link_to "Edit", edit_book_path %> | <%= link_to "Back", books_path %>
+  <div class="col-lg-9">
+    <div class="container">
+      <h2>Book detail</h2>
+      <table class="table table-hover">
+        <thead>
+          <th>
+            
+          </th>
+          <th>
+            <strong>Title:</strong>
+            <%= @book.title %>
+          </th>
+          <th>
+            <strong>Body:</strong>
+            <%= @book.body %>
+          </th>
+        </thead>
+        <tbody>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <%= link_to edit_book_path do%>
+            <span class="label label-success">Edit</span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to book_path(book), method: :delete, "data-confirm" => "Are you sure？" do %>
+            <span class="label label-danger">Destroy</span>
+            <% end %>
+          </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    <td>
-      <%= link_to "Destroy", book_path(book), method: :delete, "data-confirm" => "Are you sure？" %>
-    </td>
