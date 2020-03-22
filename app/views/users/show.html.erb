@@ -10,13 +10,13 @@
           <div class="row">
           <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
           </div>
-            <div class="d-block ">
+            <div class="d-block">
               <tr>
                 <th>name</th>
                 <th class="profile-name"><%= @user.name %></th>
               </tr>
             </div>
-            <div class="d-block ">
+            <div class="d-block">
               <tr>
                 <th>introduce</th>
                 <th class="profile-introduction"><%= @user.introduce %></th>

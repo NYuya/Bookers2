@@ -31,23 +31,23 @@
               <% if user_signed_in? %>
 
                 <li class="">
-                  <%= link_to user_path(current_user.id), class: "btn btn-link btn-block" do %>
-                  <span class="glyphicon glyphicon-home" aria-hidden="true">Home</span>
+                  <%= link_to user_path(current_user.id) do %>
+                  <span class="glyphicon glyphicon-home" aria-hidden="true" style="color:#9D9D9D" >Home</span>
                   <% end %>
                 </li>
                 <li class="">
-                  <%= link_to users_path, class: "btn btn-link btn-block" do %>
-                  <span class="glyphicon glyphicon-user" aria-hidden="true">Users</span>
+                  <%= link_to users_path do %>
+                  <span class="glyphicon glyphicon-user" aria-hidden="true" style="color:#9D9D9D" >Users</span>
                   <% end %>
                 </li>
                 <li class="">
                   <%= link_to books_path do %>
-                  <span class="glyphicon glyphicon-book" aria-hidden="true">Books</span>
+                  <span class="glyphicon glyphicon-book" aria-hidden="true" style="color:#9D9D9D" >Books</span>
                   <% end %>
                 </li>
                 <li class="">
                   <%= link_to destroy_user_session_path, method: :delete do %>
-                  <span class="glyphicon glyphicon-log-out" aria-hidden="true">logout</span>
+                  <span class="glyphicon glyphicon-log-out" aria-hidden="true" style="color:#9D9D9D" >logout</span>
                   <% end %>
                 </li>
 
@@ -55,22 +55,22 @@
 
                 <li class="">
                   <%= link_to root_path do %>
-                  <span class="glyphicon glyphicon-home" aria-hidden="true">Home</span>
+                  <span class="glyphicon glyphicon-home" aria-hidden="true" style="color:#9D9D9D" >Home</span>
                   <% end %>
                 </li>
                 <li class="">
                   <%= link_to home_about_path do %>
-                  <span class="glyphicon glyphicon-link" aria-hidden="true">About</span>
+                  <span class="glyphicon glyphicon-link" aria-hidden="true" style="color:#9D9D9D" >About</span>
                   <% end %>
                 </li>
                 <li class="">
                   <%= link_to new_user_registration_path do %>
-                  <span class="glyphicon glyphicon-edit" aria-hidden="true">sign up</span>
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true" style="color:#9D9D9D" >sign up</span>
                   <% end %>
                 </li>
                 <li class="">
                   <%= link_to new_user_session_path do %>
-                  <span class="glyphicon glyphicon-log-in" aria-hidden="true">login</span>
+                  <span class="glyphicon glyphicon-log-in" aria-hidden="true" style="color:#9D9D9D" >login</span>
                   <% end %>
                 </li>
 

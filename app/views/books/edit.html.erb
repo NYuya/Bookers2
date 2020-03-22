@@ -1,19 +1,43 @@
 
-
-
-
 <p id="notice"><%= flash[:notice] %></p>
-    <h1>Editing Book</h1>
-    <%= form_for(@book) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-    <h4>Title</h4>
-    <%= f.text_field :title %>
-    <h4>body</h4>
-    <%= f.text_area :body %>
 
-    <div class="actions">
-    	<%= f.submit 'Update Book' %>
+<div class="body-wrap">
+  <div id="st-container" class="st-container">
+    <div class="st-pusher">
+      <div class="st-content">
+        <div class="st-content-inner">
+          <section class="slice slice-lg sct-color-1">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-md-5 col-md-offset-3">
+                          <div class="form-user style-1 rounded has-shadow-1">
+                            <div class="form-header text-center " >
+
+                            </div>
+                            <div class="form-body">
+                                <h1>Editing Book</h1>
+                                <%= form_for(@book) do |f| %>
+                                <%= render 'layouts/error_messages', model: f.object %>
+                                <h4>Title</h4>
+                                <%= f.text_field :title, autofocus: true, class:"form-control", id:"inputName", placeholder:"" %>
+                                <h4>body</h4>
+                                <%= f.text_area :body, autofocus: true, class:"form-control", id:"inputName", placeholder:"" %>
+
+                                <div class="actions">
+                                	<%= f.submit 'Update Book', class:"btn btn-lg btn-block btn-primary mt-20" %>
+                                </div>
+                                <% end %>
+
+                                <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
+
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+        </div>
+      </div>
     </div>
-<% end %>
-
-    <%= link_to "Show", book_path(@book) %> | <%= link_to "Back", books_path %>
+  </div>
+</div>
