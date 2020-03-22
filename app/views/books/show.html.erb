@@ -1,44 +1,81 @@
 
-
-
-
+<div class="container">
+  <div class="row">
     <p id="notice"><%= flash[:notice] %></p>
 
+    <div class="col-lg-3" >
+
+      <div class="profile-container">
+        <h2>User info</h2>
+          <div class="row">
+          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+          </div>
+            <div class="d-block ">
+              <tr>
+                <th>name</th>
+                <th class="profile-name"><%= @user.name %></th>
+              </tr>
+            </div>
+            <div class="d-block ">
+              <tr>
+                <th>introduce</th>
+                <th class="profile-introduction"><%= @user.introduce %></th>
+              </tr>
+            </div>
+
+          <% if @user.id == current_user.id %>
+            <%= link_to  edit_user_path(@user), class: "pull-right" , class: "btn btn-default btn-block" do %>
+            <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+            <% end %>
+          <% end %>
+      </div>
 
 
-  <div class="col-lg-9">
-    <div class="container">
-      <h2>Book detail</h2>
-      <table class="table table-hover">
-        <thead>
-          <th>
-            
-          </th>
-          <th>
-            <strong>Title:</strong>
-            <%= @book.title %>
-          </th>
-          <th>
-            <strong>Body:</strong>
-            <%= @book.body %>
-          </th>
-        </thead>
-        <tbody>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>
-            <%= link_to edit_book_path do%>
-            <span class="label label-success">Edit</span>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to book_path(book), method: :delete, "data-confirm" => "Are you sure？" do %>
-            <span class="label label-danger">Destroy</span>
-            <% end %>
-          </td>
-        </tbody>
-      </table>
+      <h2>New book</h2>
+      <%= form_for(@newbook) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+
+        <div class="field ">
+          <%= f.label :title %>
+          <div class="title d-block"><%= f.text_field :title %></div>
+        </div>
+
+        <div class="field">
+          <%= f.label :Opinion %>
+          <div class="d-block"><%= f.text_area :body %></div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Create Book', class: "pull-right" , class: "btn btn-primary  btn-block" do %><% end %>
+        </div>
+      <% end %>
+
+    </div>
+
+
+
+
+    <div class="col-lg-9">
+        <h2>Book detail</h2>
+        <table class="table table-hover">
+          <tbody>
+            <td><%= link_to user_path(@user) do %><%= image_tag @book.user %><% end %></td>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
+            <td>
+              <% if @book.user == current_user %>
+              <%= link_to "Edit", edit_book_path(@book), class: "label label-success" %>
+              <% end %>
+            </td>
+            <td>
+              <% if @book.user == current_user %>
+              <%= link_to "Destroy", book_path(@book), method: :delete, class: "label label-danger", "data-confirm" => "本当に消しますか？？" %>
+              <% end %>
+            </td>
+          </tbody>
+        </table>
     </div>
   </div>
+</div>
+
 
