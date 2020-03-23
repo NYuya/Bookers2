@@ -1,17 +1,17 @@
-  
-
 
 <% if model.errors.any? %>
   <div id="error_explanation">
-    <div class="alert alert-warning">
-      <h2>
-        <%= model.errors.count %> error<%= "s " if model.errors.count > 1 %>prohibited this book from being saved:
-      </h2>
-      <ul>
-        <% model.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+      <div class="alert alert-warning", style="background-color:#FFFFFF", style="color:#FFFFFF">
+        <font color="red">
+          <h3>
+            <%= model.errors.count %> error<%= "s " if model.errors.count > 1 %>prohibited this book from being saved:
+          </h3>
+          <ul>
+            <% model.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </font>
+      </div>
   </div>
 <% end %>

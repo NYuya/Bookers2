@@ -8,18 +8,18 @@
       <div class="profile-container">
         <h2>User info</h2>
           <div class="row">
-          <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+          <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
           </div>
             <div class="d-block">
               <tr>
                 <th>name</th>
-                <th class="profile-name"><%= @user.name %></th>
+                <th class="profile-name"><%= @book.user.name %></th>
               </tr>
             </div>
             <div class="d-block">
               <tr>
                 <th>introduce</th>
-                <th class="profile-introduction"><%= @user.introduce %></th>
+                <th class="profile-introduction"><%= @book.user.introduce %></th>
               </tr>
             </div>
 

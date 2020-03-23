@@ -9,8 +9,8 @@
           <section class="slice slice-lg sct-color-1">
               <div class="container">
                   <div class="row">
-                      <div class="col-md-5 col-md-offset-3">
-                          <div class="form-user style-1 rounded has-shadow-1">
+                      <div class="col-md-6 col-md-offset-3">
+                          <div class="form-user style-1 has-shadow-1">
                             <div class="form-header text-center " >
 
                             </div>
@@ -18,10 +18,11 @@
                                 <h1>Editing Book</h1>
                                 <%= form_for(@book) do |f| %>
                                 <%= render 'layouts/error_messages', model: f.object %>
-                                <h4>Title</h4>
+
+                                <label>Title</label>
                                 <%= f.text_field :title, autofocus: true, class:"form-control", id:"inputName", placeholder:"" %>
-                                <h4>body</h4>
-                                <%= f.text_area :body, autofocus: true, class:"form-control", id:"inputName", placeholder:"" %>
+                                <label>Opinion</label>
+                                <%= f.text_area :body, autofocus: true, class:"form-control", id:"inputOpinion", placeholder:"" %>
 
                                 <div class="actions">
                                 	<%= f.submit 'Update Book', class:"btn btn-lg btn-block btn-primary mt-20" %>
