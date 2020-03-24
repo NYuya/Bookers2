@@ -1,10 +1,9 @@
-
 <div class="container">
   <div class="row">
-
+    <p id="notice"><%= flash[:notice] %></p>
+      <%= render 'layouts/error_messages', model: @newbook %>
 
     <div class="col-lg-3" >
-
       <div class="profile-container">
         <h2>User info</h2>
           <div class="row">
