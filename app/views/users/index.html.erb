@@ -10,18 +10,20 @@
           <div class="row">
           <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
           </div>
-            <div class="d-block">
+            <table class="table">
+            <tbody>
+              <tr></tr>
               <tr>
                 <th>name</th>
                 <th class="profile-name"><%= @user.name %></th>
               </tr>
-            </div>
-            <div class="d-block">
               <tr>
                 <th>introduce</th>
                 <th class="profile-introduction"><%= @user.introduce %></th>
               </tr>
-            </div>
+              <tr></tr>
+            </tbody>
+          </table>
 
           <% if @user.id == current_user.id %>
             <%= link_to  edit_user_path(@user), class: "pull-right" , class: "btn btn-default btn-block" do %>
