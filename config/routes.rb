@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  #devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'} #リンクをlogoutにする
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :books
   resources :users, only: [:index, :show, :edit, :update]
@@ -10,6 +13,11 @@ Rails.application.routes.draw do
 
   get "home/about" => "home#about" # get URL => "コントローラ名#アクション名"
 
+
+
+  devise_scope :user do #リンクをlogoutにする
+  delete 'logout', to: 'devise/sessions#destroy'
+  end
 
 
 end

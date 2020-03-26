@@ -3,7 +3,7 @@
   <div class="row">
     <p id="notice"><%= flash[:notice] %></p>
 
-    <div class="col-lg-3" >
+    <div class="col-xs-3" >
 
       <div class="profile-container">
         <h2>User info</h2>
@@ -18,15 +18,15 @@
                 <th class="profile-name"><%= @user.name %></th>
               </tr>
               <tr>
-                <th>introduce</th>
-                <th class="profile-introduction"><%= @user.introduce %></th>
+                <th>introduction</th>
+                <th class="profile-introduction"><%= @user.introduction %></th>
               </tr>
               <tr></tr>
             </tbody>
           </table>
 
           <% if @user.id == current_user.id %>
-            <%= link_to  edit_user_path(@user), class: "pull-right" , class: "btn btn-default btn-block" do %>
+            <%= link_to  edit_user_path(@user), class: "pull-right btn btn-default btn-block" do %>
             <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
             <% end %>
           <% end %>
@@ -47,14 +47,14 @@
         </div>
 
         <div class="actions">
-          <%= f.submit 'Create Book', class: "pull-right" , class: "btn btn-primary  btn-block" do %><% end %>
+          <%= f.submit 'Create Book', class: "pull-right btn btn-primary btn-block" %>
         </div>
       <% end %>
 
     </div>
 
 
-      <div class="col-lg-9">
+      <div class="col-xs-9">
             <h2>Books</h2>
               <table class="table table-hover">
                 <thead>
