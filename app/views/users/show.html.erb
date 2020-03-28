@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <p id="notice"><%= flash[:notice] %></p>
+
 
     <div class="col-xs-3" >
 
@@ -24,12 +24,10 @@
               <tr></tr>
             </tbody>
           </table>
-
-          <% if @user.id == current_user.id %>
+          
             <%= link_to  edit_user_path(@user), class: "pull-right btn btn-default btn-block" do %>
             <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
             <% end %>
-          <% end %>
       </div>
 
 
