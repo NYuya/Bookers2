@@ -8,7 +8,7 @@
       <div class="profile-container">
         <h2>User info</h2>
           <div class="row">
-          <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+          <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg" %>
           </div>
             <table class="table">
             <tbody>
@@ -62,7 +62,7 @@
         <table class="table table-hover">
           <tbody>
             <td><%= link_to user_path(@user) do %>
-              <%= image_tag @book.user %><br>
+              <%= attachment_image_tag @book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %><br>
               <%= @book.user.name %>
               <% end %>
             </td>
